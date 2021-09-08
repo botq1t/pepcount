@@ -385,6 +385,11 @@ body {
   font-size: calc(20px + 10 * ((100vw - 320px) / 448));
   margin: 0px 0px 15px 0px;
 }
+@media (min-width: 768px) {
+  .card__title {
+    font-size: 30px;
+  }
+}
 .card__frequency {
   font-size: calc(15px + 5 * ((100vw - 320px) / 448));
   display: -webkit-box;
@@ -403,6 +408,11 @@ body {
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
 }
+@media (min-width: 768px) {
+  .card__frequency {
+    font-size: 20px;
+  }
+}
 .card__displayer {
   font-size: calc(20px + 10 * ((100vw - 320px) / 448));
   display: -webkit-box;
@@ -419,6 +429,11 @@ body {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   margin: 0 0 20px 0;
+}
+@media (min-width: 768px) {
+  .card__displayer {
+    font-size: 30px;
+  }
 }
 .card__controls {
   display: -ms-grid;
@@ -442,6 +457,11 @@ body {
       -ms-flex-pack: center;
           justify-content: center;
   border-radius: 10px;
+}
+@media (min-width: 768px) {
+  .card__button {
+    font-size: 30px;
+  }
 }
 .card__button_plus {
   background-color: rgba(0, 255, 0, 0.4);

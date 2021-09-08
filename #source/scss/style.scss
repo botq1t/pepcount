@@ -236,11 +236,17 @@ body {
 	&__title {
 		text-align: center;
 		@include adaptiv-font(30, 20);
+		@media (min-width: 768px) {
+			font-size: 30px;
+		}
 		margin: 0px 0px 15px 0px;
 	}
 
 	&__frequency {
 		@include adaptiv-font(20, 15);
+		@media (min-width: 768px) {
+			font-size: 20px;
+		}
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
@@ -255,6 +261,9 @@ body {
 
 	&__displayer {
 		@include adaptiv-font(30, 20);
+		@media (min-width: 768px) {
+			font-size: 30px;
+		}
 		display: flex;
 		align-items: center;
 		justify-content: center;
@@ -273,6 +282,9 @@ body {
 	&__button {
 		cursor: default;
 		@include adaptiv-font(30, 20);
+		@media (min-width: 768px) {
+			font-size: 30px;
+		}
 		width: 100%;
 		height: 40px;
 		display: flex;

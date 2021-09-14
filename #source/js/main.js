@@ -51,7 +51,7 @@ $('.main__button_start').click(function () {
 	});
 	localStorage['logger'] = JSON.stringify(logger);
 	console.log('logger', logger);
-	$('.main__logger').empty();
+	$('.logger').empty();
 	displayLogger('now');
 });
 
@@ -244,57 +244,56 @@ function getFrequency(time) {
 		$(this).children('.frequency').children('.freq-hour').children('span').html(freq.h.toFixed(2));
 		$(this).children('.frequency').children('.freq-minute').children('span').html(freq.m.toFixed(2));
 		$(this).children('.frequency').children('.freq-second').children('span').html(freq.s.toFixed(2));
-
-	})
+	});
 }
 
 function displayLogger(mode) {
 	switch (mode) {
 		case 'launch':
-			$('.main__logger').empty();
+			$('.logger').empty();
 			for (let i = 0; i < logger.length; i++) {
 				if (i > 0 && (logger[i].time - logger[i - 1].time) >= 10) {
-					$('.main__logger').prepend('<p class="logger__spacing"></p>');
+					$('.logger').prepend('<p class="logger__spacing"></p>');
 				}
 
 				switch (logger[i].action) {
 					case '+':
-						$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
 						break;
 					case '-':
-						$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
 						break;
 					case 'start':
-						$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
+						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
 						break;
 					case 'pause':
-						$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
+						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
 						break;
 					case 'resume':
-						$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
+						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
 						break;
 				}
 			}
 			break;
 		case 'now':
 			let i = logger.length - 1;
-			if (i > 0 && (logger[i].time - logger[i - 1].time) >= 10) $('.main__logger').prepend('<p class="logger__spacing"></p>');
+			if (i > 0 && (logger[i].time - logger[i - 1].time) >= 10) $('.logger').prepend('<p class="logger__spacing"></p>');
 
 			switch (logger[i].action) {
 				case '+':
-					$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
 					break;
 				case '-':
-					$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
 					break;
 				case 'start':
-					$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
+					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
 					break;
 				case 'pause':
-					$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
+					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
 					break;
 				case 'resume':
-					$('.main__logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
+					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
 					break;
 			}
 			break;

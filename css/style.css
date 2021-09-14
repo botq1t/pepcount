@@ -436,8 +436,8 @@ body {
   border: 1px solid #a0a0a0;
   border-radius: 10px;
   -webkit-box-flex: 0;
-      -ms-flex: 0 0 300px;
-          flex: 0 0 300px;
+      -ms-flex: 0 0 47%;
+          flex: 0 0 47%;
   margin: 0px 0px 10px 0px;
   padding: 5px 0px 0px;
   display: -webkit-box;
@@ -451,7 +451,7 @@ body {
 }
 .card__title {
   text-align: center;
-  font-size: calc(20px + 10 * ((100vw - 320px) / 448));
+  font-size: calc(18px + 10 * ((100vw - 320px) / 448));
   margin: 0px 0px 5px 0px;
 }
 @media (min-width: 768px) {
@@ -460,19 +460,17 @@ body {
   }
 }
 .card__frequency {
-  font-size: calc(15px + 5 * ((100vw - 320px) / 448));
+  font-size: calc(11px + 14 * ((100vw - 320px) / 448));
   border-top: 1px solid #a0a0a0;
   border-bottom: 1px solid #a0a0a0;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
   background-color: rgba(0, 217, 255, 0.384);
-  padding: 5px 5px;
+  padding: 5px 0;
   font-style: italic;
   color: rgba(0, 0, 0, 0.548);
 }
@@ -480,6 +478,16 @@ body {
   .card__frequency {
     font-size: 20px;
   }
+}
+.card__frequency p {
+  border-right: 1px dashed rgba(0, 0, 0, 0.3);
+  -webkit-box-flex: 1;
+      -ms-flex: 1 1 auto;
+          flex: 1 1 auto;
+  text-align: center;
+}
+.card__frequency p:last-child {
+  border-right: none;
 }
 .card__displayer {
   font-size: calc(20px + 10 * ((100vw - 320px) / 448));
@@ -504,8 +512,8 @@ body {
   display: -ms-grid;
   display: grid;
   -ms-grid-rows: 1fr;
-  -ms-grid-columns: 1.5fr 3fr 1.5fr;
-      grid-template: 1fr/1.5fr 3fr 1.5fr;
+  -ms-grid-columns: 2fr 2.5fr 2fr;
+      grid-template: 1fr/2fr 2.5fr 2fr;
 }
 .card__button {
   cursor: default;

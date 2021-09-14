@@ -290,7 +290,7 @@ body {
 	border-radius: 10px;
 	// border-bottom: 1px solid;
 	// border-top: 1px solid;
-	flex: 0 0 300px;
+	flex: 0 0 47%;
 	margin: 0px 0px 10px 0px;
 	padding: 5px 0px 0px;
 	display: flex;
@@ -298,7 +298,7 @@ body {
 	overflow: hidden;
 	&__title {
 		text-align: center;
-		@include adaptiv-font(30, 20);
+		@include adaptiv-font(28, 18);
 		@media (min-width: 768px) {
 			font-size: 30px;
 		}
@@ -306,19 +306,27 @@ body {
 	}
 
 	&__frequency {
-		@include adaptiv-font(20, 15);
+		@include adaptiv-font(25, 11);
 		@media (min-width: 768px) {
 			font-size: 20px;
 		}
 		border-top: 1px solid rgb(160, 160, 160);
 		border-bottom: 1px solid rgb(160, 160, 160);
 		display: flex;
-		justify-content: space-around;
 		align-items: center;
 		background-color: rgba(0, 217, 255, 0.384);
-		padding: 5px 5px;
+		padding: 5px 0;
 		font-style: italic;
 		color: rgba(0, 0, 0, 0.548);
+		p {
+			border-right: 1px dashed rgba(0, 0, 0, 0.3);
+			// flex: 0 0 33.33%;
+			flex: 1 1 auto;
+			text-align: center;
+			&:last-child {
+				border-right: none;
+			}
+		}
 	}
 
 	&__displayer {
@@ -335,7 +343,7 @@ body {
 
 	&__controls {
 		display: grid;
-		grid-template: 1fr / 1.5fr 3fr 1.5fr;
+		grid-template: 1fr / 2fr 2.5fr 2fr;
 	}
 
 	&__button {

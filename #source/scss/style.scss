@@ -124,7 +124,7 @@ body {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		padding: 105px 0px 0px 0px;
+		padding: 105px 0px 20px 0px;
 	}
 
 	&__start {
@@ -133,7 +133,7 @@ body {
 		width: 100%;
 		background: white;
 		z-index: 3;
-		display: flex;
+		// display: flex;
 		// display: none;
 		align-items: center;
 		justify-content: center;
@@ -190,6 +190,19 @@ body {
 				transition: background-color 200ms ease 0s;
 			}
 		}
+
+		&_pause {
+			padding: 8px 30px;
+			background-color: rgba(48, 223, 25, 0.8);
+			transition: background-color 600ms ease 0s;
+			font-style: italic;
+			letter-spacing: 1px;
+			margin: 0px 0px 15px 0px;
+			&:active {
+				background-color: rgba(255, 153, 0, 0.5);
+				transition: background-color 200ms ease 0s;
+			}
+		}
 	}
 
 	&__controls {
@@ -204,11 +217,60 @@ body {
 		}
 	}
 
+	&__content {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-around;
+		margin: 0 0 20px 0;
+	}
+
 	&__timer {
 		margin: 0px 0px 10px 0px;
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+	}
+}
+
+.logger {
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	padding: 10px 15px;
+	max-height: 200px;
+	width: 90%;
+	overflow-y: auto;
+	@include adaptiv-font(16, 13);
+	font-style: italic;
+
+	&__time {
+		color: red;
+		font-weight: 700;
+		font-style: normal;
+	}
+
+	&__blue {
+		color: blue;
+		font-style: normal;
+	}
+	&__spacing {
+		width: 100%;
+		position: relative;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 50%;
+			left: 0;
+			height: 1px;
+			width: 100%;
+			background-color: rgb(0, 255, 255);
+		}
+	}
+	p {
+		margin: 0 0 5px 0;
+		&:last-child {
+			margin: 0;
+		}
 	}
 }
 
@@ -225,21 +287,22 @@ body {
 
 .card {
 	border: 1px solid rgb(160, 160, 160);
-	border-radius: 30px;
+	border-radius: 10px;
 	// border-bottom: 1px solid;
 	// border-top: 1px solid;
-	width: 90%;
-	margin: 0px 0px 20px 0px;
-	padding: 20px 10px;
+	flex: 0 0 300px;
+	margin: 0px 0px 10px 0px;
+	padding: 5px 0px 0px;
 	display: flex;
 	flex-direction: column;
+	overflow: hidden;
 	&__title {
 		text-align: center;
 		@include adaptiv-font(30, 20);
 		@media (min-width: 768px) {
 			font-size: 30px;
 		}
-		margin: 0px 0px 15px 0px;
+		margin: 0px 0px 5px 0px;
 	}
 
 	&__frequency {
@@ -247,16 +310,15 @@ body {
 		@media (min-width: 768px) {
 			font-size: 20px;
 		}
+		border-top: 1px solid rgb(160, 160, 160);
+		border-bottom: 1px solid rgb(160, 160, 160);
 		display: flex;
 		justify-content: space-around;
 		align-items: center;
-		margin: 0px 0px 5px 0px;
 		background-color: rgba(0, 217, 255, 0.384);
 		padding: 5px 5px;
 		font-style: italic;
 		color: rgba(0, 0, 0, 0.548);
-		border-top-left-radius: 10px;
-		border-top-right-radius: 10px;
 	}
 
 	&__displayer {
@@ -267,16 +329,13 @@ body {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		height: 50px;
+		height: 40px;
 		background-color: rgba(124, 124, 124, 0.185);
-		border-bottom-left-radius: 10px;
-		border-bottom-right-radius: 10px;
-		margin: 0 0 20px 0;
 	}
 
 	&__controls {
 		display: grid;
-		grid-template: 1fr / 1fr 2fr 1fr 2fr 1fr;
+		grid-template: 1fr / 1.5fr 3fr 1.5fr;
 	}
 
 	&__button {
@@ -290,11 +349,8 @@ body {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		border-radius: 10px;
 		&_plus {
 			background-color: rgba(0, 255, 0, 0.4);
-			grid-column: 2 / 3;
-			grid-row: 1 / 2;
 			transition: background-color 200ms ease 0s;
 			&:active {
 				background-color: rgba(0, 255, 0, 0.6);
@@ -304,8 +360,6 @@ body {
 
 		&_minus {
 			background-color: rgba(255, 0, 0, 0.4);
-			grid-column: 4 / 5;
-			grid-row: 1 / 2;
 			transition: background-color 200ms ease 0s;
 			&:active {
 				background-color: rgba(255, 0, 0, 0.6);

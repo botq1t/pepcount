@@ -73,6 +73,7 @@ body {
 		font-family: "Libre Baskerville", serif;
 		display: flex;
 		justify-content: center;
+		color: black;
 		@include adaptiv-font(25, 15);
 		text-transform: uppercase;
 		letter-spacing: calc(3px + 13 * ((100vw - 320px) / (768 - 320)));

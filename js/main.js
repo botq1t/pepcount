@@ -209,9 +209,6 @@ $('.card__button_minus').click(function () {
 });
 
 
-
-
-
 function checkMode(mode) {
 	switch (mode) {
 		case 'stop':

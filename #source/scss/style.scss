@@ -34,6 +34,16 @@ body {
 	z-index: 10;
 	width: 100%;
 	background-color: white;
+	&::after {
+		content: "";
+		position: absolute;
+		bottom: 0;
+		left: 50%;
+		transform: translateX(-50%);
+		height: 1px;
+		width: 90%;
+		background: rgb(160, 160, 160);
+	}
 	&__body {
 		display: flex;
 		align-items: center;
@@ -42,16 +52,6 @@ body {
 		height: 85px;
 		justify-content: space-around;
 		padding: 0px 0px 5px 0px;
-		&::after {
-			content: "";
-			position: absolute;
-			bottom: 0;
-			left: 50%;
-			transform: translateX(-50%);
-			height: 1px;
-			width: 90%;
-			background: rgb(160, 160, 160);
-		}
 	}
 
 	&__picture {
@@ -237,10 +237,10 @@ body {
 	border: 1px solid black;
 	display: flex;
 	flex-direction: column;
-	max-height: 200px;
+	height: 200px;
 	width: 90%;
 	overflow-y: auto;
-	@include adaptiv-font(16, 13);
+	@include adaptiv-font(16, 15);
 	font-style: italic;
 
 	&__time {
@@ -257,6 +257,7 @@ body {
 	&__group {
 		padding: 8px 60px 8px 8px;
 		position: relative;
+		flex: 1 1 auto;
 		&_green {
 			background-color: rgba(0, 255, 0, 0.3);
 			.logger__background {
@@ -277,7 +278,7 @@ body {
 		right: 10px;
 		transform: translateY(-50%);
 		z-index: -1;
-		font-size: 30px;
+		@include adaptiv-font(23, 22);
 		overflow: hidden;
 	}
 

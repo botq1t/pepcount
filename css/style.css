@@ -394,7 +394,7 @@ body {
   height: 200px;
   width: 90%;
   overflow-y: auto;
-  font-size: calc(13px + 5 * ((100vw - 320px) / 448));
+  font-size: calc(15px + 1 * ((100vw - 320px) / 448));
   font-style: italic;
 }
 .logger__time {
@@ -432,7 +432,7 @@ body {
   -webkit-transform: translateY(-50%);
           transform: translateY(-50%);
   z-index: -1;
-  font-size: calc(18px + 10 * ((100vw - 320px) / 448));
+  font-size: calc(22px + 1 * ((100vw - 320px) / 448));
   overflow: hidden;
 }
 .logger p {

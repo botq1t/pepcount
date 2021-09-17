@@ -3,11 +3,7 @@ console.log('logger', logger);
 let output = $('div');
 
 for (let i = 0; i < logger.length; i++) {
-	output.append(`
-		<p>
-			${JSON.stringify(logger[i])},
-		</p>
-	`);
+	output.append(`${JSON.stringify(logger[i])},\n`);
 }
 
 let check = [

@@ -255,7 +255,7 @@ body {
 	}
 
 	&__group {
-		padding: 8px 8px 8px 30px;
+		padding: 8px 60px 8px 8px;
 		position: relative;
 		&_green {
 			background-color: rgba(0, 255, 0, 0.3);
@@ -274,26 +274,12 @@ body {
 	&__background {
 		position: absolute;
 		top: 50%;
-		left: 5px;
+		right: 10px;
 		transform: translateY(-50%);
 		z-index: -1;
 		font-size: 30px;
 		overflow: hidden;
 	}
-
-	/*&__spacing {
-		width: 100%;
-		position: relative;
-		&::before {
-			content: "";
-			position: absolute;
-			top: 50%;
-			left: 0;
-			height: 1px;
-			width: 100%;
-			background-color: rgb(0, 255, 255);
-		}
-	}*/
 
 	p {
 		margin: 0 0 5px 0;

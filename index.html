@@ -30,64 +30,109 @@
 	</div>
 	<div class="container">
 		<div class="main__body">
-
-
 			<div class="main__controls">
 				<div class="main__timer timer">
 					<div class="timer__begin">Подсчёт начался в <span>HH:MM:SS</span></div>
 					<div class="timer__passing">Прошло: <span></span></div>
 				</div>
+				<div class="main__button main__button_pause">Пауза</div>
 				<div class="main__button main__button_end">Закончить подсчёт!</div>
 			</div>
 
-			<div id="card-1" class="main__card card">
-				<h2 class="card__title">Значиць</h2>
-				<div class="card__frequency frequency">
-					<p class="freq-hour"><span>0</span>/ч</p>
-					<p class="freq-minute"><span>0</span>/м</p>
-					<p class="freq-second"><span>0</span>/с</p>
+			<div class="main__content">
+				<div id="card_0" class="main__card card">
+					<h2 class="card__title">Значиць</h2>
+					<div class="card__frequency frequency">
+						<p class="freq-hour"><span>0</span>/ч</p>
+						<p class="freq-minute"><span>0</span>/м</p>
+						<p class="freq-second"><span>0</span>/с</p>
+					</div>
+					<div class="card__controls">
+						<div class="card__button card__button_plus">+</div>
+						<div class="card__displayer">0</div>
+						<div class="card__button card__button_minus">-</div>
+					</div>
 				</div>
-				<div class="card__displayer">
-					0
+
+				<div id="card_1" class="main__card card">
+					<h2 class="card__title">В принципе да</h2>
+					<div class="card__frequency frequency">
+						<p class="freq-hour"><span>0</span>/ч</p>
+						<p class="freq-minute"><span>0</span>/м</p>
+						<p class="freq-second"><span>0</span>/с</p>
+					</div>
+					<div class="card__controls">
+						<div class="card__button card__button_plus">+</div>
+						<div class="card__displayer">0</div>
+						<div class="card__button card__button_minus">-</div>
+					</div>
 				</div>
-				<div class="card__controls">
-					<div class="card__button card__button_plus">+1</div>
-					<div class="card__button card__button_minus">-1</div>
+
+				<div id="card_2" class="main__card card">
+					<h2 class="card__title">Повторение</h2>
+					<div class="card__frequency frequency">
+						<p class="freq-hour"><span>0</span>/ч</p>
+						<p class="freq-minute"><span>0</span>/м</p>
+						<p class="freq-second"><span>0</span>/с</p>
+					</div>
+					<div class="card__controls">
+						<div class="card__button card__button_plus">+</div>
+						<div class="card__displayer">0</div>
+						<div class="card__button card__button_minus">-</div>
+					</div>
+				</div>
+
+				<div id="card_3" class="main__card card">
+					<h2 class="card__title">Кхе...</h2>
+					<div class="card__frequency frequency">
+						<p class="freq-hour"><span>0</span>/ч</p>
+						<p class="freq-minute"><span>0</span>/м</p>
+						<p class="freq-second"><span>0</span>/с</p>
+					</div>
+					<div class="card__controls">
+						<div class="card__button card__button_plus">+</div>
+						<div class="card__displayer">0</div>
+						<div class="card__button card__button_minus">-</div>
+					</div>
+				</div>
+
+				<div id="card_4" class="main__card card">
+					<h2 class="card__title">Внимание</h2>
+					<div class="card__frequency frequency">
+						<p class="freq-hour"><span>0</span>/ч</p>
+						<p class="freq-minute"><span>0</span>/м</p>
+						<p class="freq-second"><span>0</span>/с</p>
+					</div>
+					<div class="card__controls">
+						<div class="card__button card__button_plus">+</div>
+						<div class="card__displayer">0</div>
+						<div class="card__button card__button_minus">-</div>
+					</div>
+				</div>
+
+				<div id="card_5" class="main__card card">
+					<h2 class="card__title">Это самое</h2>
+					<div class="card__frequency frequency">
+						<p class="freq-hour"><span>0</span>/ч</p>
+						<p class="freq-minute"><span>0</span>/м</p>
+						<p class="freq-second"><span>0</span>/с</p>
+					</div>
+					<div class="card__controls">
+						<div class="card__button card__button_plus">+</div>
+						<div class="card__displayer">0</div>
+						<div class="card__button card__button_minus">-</div>
+					</div>
 				</div>
 			</div>
 
-			<div id="card-2" class="main__card card">
-				<h2 class="card__title">В принципе да</h2>
-				<div class="card__frequency frequency">
-					<p class="freq-hour"><span>0</span>/ч</p>
-					<p class="freq-minute"><span>0</span>/м</p>
-					<p class="freq-second"><span>0</span>/с</p>
-				</div>
-				<div class="card__displayer">
-					0
-				</div>
-				<div class="card__controls">
-					<div class="card__button card__button_plus">+1</div>
-					<div class="card__button card__button_minus">-1</div>
-				</div>
+			<div class="main__logger logger">
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis est enim dignissimos voluptatem
+					suscipit at laboriosam corrupti excepturi expedita minus!</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Excepturi, minima?</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum, eligendi!</p>
+				<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Minima, aperiam.</p>
+				<p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti, sunt.</p>
 			</div>
-
-			<div id="card-3" class="main__card card">
-				<h2 class="card__title">Удвоение</h2>
-				<div class="card__frequency frequency">
-					<p class="freq-hour"><span>0</span>/ч</p>
-					<p class="freq-minute"><span>0</span>/м</p>
-					<p class="freq-second"><span>0</span>/с</p>
-				</div>
-				<div class="card__displayer">
-					0
-				</div>
-				<div class="card__controls">
-					<div class="card__button card__button_plus">+1</div>
-					<div class="card__button card__button_minus">-1</div>
-				</div>
-			</div>
-
 		</div>
 	</div>
 </main>	</div>

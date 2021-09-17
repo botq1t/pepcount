@@ -1,4 +1,4 @@
-let logger = JSON.parse(localStorage['logger']);
+let logger = JSON.parse(localStorage['pepcount_logger']);
 console.log('logger', logger);
 let output = $('div');
 

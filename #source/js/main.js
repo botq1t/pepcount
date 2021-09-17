@@ -1,4 +1,6 @@
 'use strict'
+// ! ================= Initialization =================================
+
 let parametersDefault = {
 	timeBegin: 0,
 	timePauseStart: 0,
@@ -7,8 +9,8 @@ let parametersDefault = {
 	timePassing: 0,
 }
 
-if (!localStorage['parameters']) localStorage['parameters'] = JSON.stringify(parametersDefault);
-let parameters = JSON.parse(localStorage['parameters']);
+if (!localStorage['pepcount_parameters']) localStorage['pepcount_parameters'] = JSON.stringify(parametersDefault);
+let parameters = JSON.parse(localStorage['pepcount_parameters']);
 console.log('Parameters', parameters);
 
 let counterDefault = [];
@@ -17,33 +19,37 @@ $('.card').each(function () {
 	counterDefault.push(0);
 });
 
-if (!localStorage['counter']) localStorage['counter'] = JSON.stringify(counterDefault);
-let counter = JSON.parse(localStorage['counter']);
+if (!localStorage['pepcount_counter']) localStorage['pepcount_counter'] = JSON.stringify(counterDefault);
+let counter = JSON.parse(localStorage['pepcount_counter']);
 console.log('counter', counter);
 
-if (!localStorage['mode']) localStorage['mode'] = 'stop';
+if (!localStorage['pepcount_mode']) localStorage['pepcount_mode'] = 'stop';
 console.log(localStorage);
 
 let loggerDefault = [];
 
-if (!localStorage['logger']) localStorage['logger'] = JSON.stringify(loggerDefault);
-let logger = JSON.parse(localStorage['logger']);
+if (!localStorage['pepcount_logger']) localStorage['pepcount_logger'] = JSON.stringify(loggerDefault);
+let logger = JSON.parse(localStorage['pepcount_logger']);
+
+// ! ========================= Main code ========================================
 
 let timeCurrent;
 let timePassing;
 let intervalTimer, intervalPause;
 
 setCardsOrder(counter);
-checkMode(localStorage['mode']);
+checkMode(localStorage['pepcount_mode']);
 displayLogger('launch');
 setCounter();
 
+// ? ========================= Start ========================================
+
 $('.main__button_start').click(function () {
-	localStorage['mode'] = 'start';
+	localStorage['pepcount_mode'] = 'start';
 	timer();
 	parameters.timeBegin = timeCurrent;
-	localStorage['parameters'] = JSON.stringify(parameters);
-	checkMode(localStorage['mode']);
+	localStorage['pepcount_parameters'] = JSON.stringify(parameters);
+	checkMode(localStorage['pepcount_mode']);
 
 	logger.push({
 		time: timeCurrent,
@@ -51,19 +57,21 @@ $('.main__button_start').click(function () {
 		meaning: 'start',
 		action: 'start',
 	});
-	localStorage['logger'] = JSON.stringify(logger);
+	localStorage['pepcount_logger'] = JSON.stringify(logger);
 	console.log('logger', logger);
 	$('.logger').empty();
 	displayLogger('now');
 });
 
+// ? ========================= Pause ========================================
+
 $('.main__button_pause').click(function () {
 	switch ($(this).html()) {
 		case 'Пауза':
-			localStorage['mode'] = 'pause';
+			localStorage['pepcount_mode'] = 'pause';
 			parameters.timePauseStart = timeCurrent;
 			parameters.timePassing = timeCurrent - parameters.timeBegin - parameters.timePauseNow;
-			localStorage['parameters'] = JSON.stringify(parameters);
+			localStorage['pepcount_parameters'] = JSON.stringify(parameters);
 
 			logger.push({
 				time: timeCurrent,
@@ -71,15 +79,15 @@ $('.main__button_pause').click(function () {
 				meaning: 'pause',
 				action: 'pause',
 			});
-			localStorage['logger'] = JSON.stringify(logger);
+			localStorage['pepcount_logger'] = JSON.stringify(logger);
 			console.log('logger', logger);
 			displayLogger('now');
 			break;
 		case 'Продолжить':
-			localStorage['mode'] = 'start';
+			localStorage['pepcount_mode'] = 'start';
 			parameters.timePauseStart = 0;
 			parameters.timePause = parameters.timePauseNow;
-			localStorage['parameters'] = JSON.stringify(parameters);
+			localStorage['pepcount_parameters'] = JSON.stringify(parameters);
 
 			logger.push({
 				time: timeCurrent,
@@ -87,19 +95,21 @@ $('.main__button_pause').click(function () {
 				meaning: 'resume',
 				action: 'resume',
 			});
-			localStorage['logger'] = JSON.stringify(logger);
+			localStorage['pepcount_logger'] = JSON.stringify(logger);
 			console.log('logger', logger);
 			displayLogger('now');
 			break;
 	}
 
-	checkMode(localStorage['mode']);
+	checkMode(localStorage['pepcount_mode']);
 });
 
-$('.main__button_end').click(function () {
-	localStorage['mode'] = 'stop';
+// ? ========================= End ========================================
 
-	checkMode(localStorage['mode']);
+$('.main__button_end').click(function () {
+	localStorage['pepcount_mode'] = 'stop';
+
+	checkMode(localStorage['pepcount_mode']);
 	setCounter();
 });
 // ? ===================== Plus =======================
@@ -107,7 +117,7 @@ $('.card__button_plus').click(function () {
 	let id = $(this).parent().parent().attr('id');
 	id = id.split('_')[1];
 	counter[id]++;
-	localStorage['counter'] = JSON.stringify(counter);
+	localStorage['pepcount_counter'] = JSON.stringify(counter);
 	console.log(id);
 	setCounter(id);
 
@@ -118,7 +128,7 @@ $('.card__button_plus').click(function () {
 		meaning: $(this).parent().prev().prev().html(),
 		action: '+',
 	});
-	localStorage['logger'] = JSON.stringify(logger);
+	localStorage['pepcount_logger'] = JSON.stringify(logger);
 	displayLogger('now');
 });
 
@@ -126,7 +136,7 @@ $('.card__displayer').click(function () {
 	let id = $(this).parent().parent().attr('id');
 	id = id.split('_')[1];
 	counter[id]++;
-	localStorage['counter'] = JSON.stringify(counter);
+	localStorage['pepcount_counter'] = JSON.stringify(counter);
 	console.log(id);
 	setCounter(id);
 
@@ -137,7 +147,7 @@ $('.card__displayer').click(function () {
 		meaning: $(this).parent().prev().prev().html(),
 		action: '+',
 	});
-	localStorage['logger'] = JSON.stringify(logger);
+	localStorage['pepcount_logger'] = JSON.stringify(logger);
 	displayLogger('now');
 });
 
@@ -145,7 +155,7 @@ $('.card__title').click(function () {
 	let id = $(this).parent().attr('id');
 	id = id.split('_')[1];
 	counter[id]++;
-	localStorage['counter'] = JSON.stringify(counter);
+	localStorage['pepcount_counter'] = JSON.stringify(counter);
 	console.log(id);
 	setCounter(id);
 
@@ -156,7 +166,7 @@ $('.card__title').click(function () {
 		meaning: $(this).html(),
 		action: '+',
 	});
-	localStorage['logger'] = JSON.stringify(logger);
+	localStorage['pepcount_logger'] = JSON.stringify(logger);
 	displayLogger('now');
 });
 
@@ -164,7 +174,7 @@ $('.card__frequency').click(function () {
 	let id = $(this).parent().attr('id');
 	id = id.split('_')[1];
 	counter[id]++;
-	localStorage['counter'] = JSON.stringify(counter);
+	localStorage['pepcount_counter'] = JSON.stringify(counter);
 	console.log(id);
 	setCounter(id);
 
@@ -175,10 +185,11 @@ $('.card__frequency').click(function () {
 		meaning: $(this).prev().html(),
 		action: '+',
 	});
-	localStorage['logger'] = JSON.stringify(logger);
+	localStorage['pepcount_logger'] = JSON.stringify(logger);
 	displayLogger('now');
 });
-// ? =================================================
+
+// ? ===================== Minus =======================
 
 $('.card__button_minus').click(function () {
 	let id = $(this).parent().parent().attr('id');
@@ -186,7 +197,7 @@ $('.card__button_minus').click(function () {
 	if (counter[id] == 0) return;
 
 	counter[id]--;
-	localStorage['counter'] = JSON.stringify(counter);
+	localStorage['pepcount_counter'] = JSON.stringify(counter);
 	console.log(id);
 	setCounter(id);
 
@@ -204,20 +215,21 @@ $('.card__button_minus').click(function () {
 		meaning: $(this).parent().prev().prev().html(),
 		action: '-',
 	});*/
-	localStorage['logger'] = JSON.stringify(logger);
+	localStorage['pepcount_logger'] = JSON.stringify(logger);
 	displayLogger('launch');
 });
 
+// ! ====================== Functions =====================================
 
 function checkMode(mode) {
 	switch (mode) {
 		case 'stop':
-			localStorage['parameters'] = JSON.stringify(parametersDefault);
-			localStorage['counter'] = JSON.stringify(counterDefault);
-			localStorage['logger'] = JSON.stringify(loggerDefault);
-			parameters = JSON.parse(localStorage['parameters']);
-			counter = JSON.parse(localStorage['counter']);
-			logger = JSON.parse(localStorage['logger']);
+			localStorage['pepcount_parameters'] = JSON.stringify(parametersDefault);
+			localStorage['pepcount_counter'] = JSON.stringify(counterDefault);
+			localStorage['pepcount_logger'] = JSON.stringify(loggerDefault);
+			parameters = JSON.parse(localStorage['pepcount_parameters']);
+			counter = JSON.parse(localStorage['pepcount_counter']);
+			logger = JSON.parse(localStorage['pepcount_logger']);
 			clearInterval(intervalTimer);
 			clearInterval(intervalPause);
 			$('.main__start').css('display', 'flex');
@@ -253,7 +265,7 @@ function timer() {
 	let date = new Date();
 	timeCurrent = date.getHours() * 3600 + date.getMinutes() * 60 + date.getSeconds();
 	timePassing = timeCurrent - parameters.timeBegin - parameters.timePauseNow;
-	if (localStorage['mode'] == 'start') {
+	if (localStorage['pepcount_mode'] == 'start') {
 		$('.timer__passing').children('span').html(getTimeString(timePassing));
 		getFrequency(timePassing);
 	}
@@ -303,6 +315,11 @@ function getFrequency(time) {
 		freq.m = freq.s * 60;
 		freq.h = freq.m * 60;
 
+		if (isNaN(freq.s)) {
+			freq.s = 0;
+			freq.m = 0;
+			freq.h = 0;
+		}
 
 		// console.log(freq);
 		$(this).children('.frequency').children('.freq-hour').children('span').html(freq.h.toFixed(2));

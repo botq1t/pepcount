@@ -1,4 +1,5 @@
 'use strict'
+// @prepros-append "create_log.js"
 // ! ================= Initialization =================================
 
 let parametersDefault = {
@@ -219,7 +220,6 @@ $('.card__button_minus').click(function () {
 	displayLogger('launch');
 });
 
-// @prepros-append "index/create_log.js"
 // ! ====================== Functions =====================================
 
 function checkMode(mode) {

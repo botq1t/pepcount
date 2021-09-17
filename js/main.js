@@ -32,6 +32,8 @@ let logger = JSON.parse(localStorage['logger']);
 let timeCurrent;
 let timePassing;
 let intervalTimer, intervalPause;
+
+setCardsOrder(counter);
 checkMode(localStorage['mode']);
 displayLogger('launch');
 setCounter();
@@ -100,7 +102,7 @@ $('.main__button_end').click(function () {
 	checkMode(localStorage['mode']);
 	setCounter();
 });
-
+// ? ===================== Plus =======================
 $('.card__button_plus').click(function () {
 	let id = $(this).parent().parent().attr('id');
 	id = id.split('_')[1];
@@ -120,6 +122,64 @@ $('.card__button_plus').click(function () {
 	displayLogger('now');
 });
 
+$('.card__displayer').click(function () {
+	let id = $(this).parent().parent().attr('id');
+	id = id.split('_')[1];
+	counter[id]++;
+	localStorage['counter'] = JSON.stringify(counter);
+	console.log(id);
+	setCounter(id);
+
+	logger.push({
+		time: timeCurrent,
+		counter: counter[id],
+		timeString: getTimeString(timeCurrent),
+		meaning: $(this).parent().prev().prev().html(),
+		action: '+',
+	});
+	localStorage['logger'] = JSON.stringify(logger);
+	displayLogger('now');
+});
+
+$('.card__title').click(function () {
+	let id = $(this).parent().attr('id');
+	id = id.split('_')[1];
+	counter[id]++;
+	localStorage['counter'] = JSON.stringify(counter);
+	console.log(id);
+	setCounter(id);
+
+	logger.push({
+		time: timeCurrent,
+		counter: counter[id],
+		timeString: getTimeString(timeCurrent),
+		meaning: $(this).html(),
+		action: '+',
+	});
+	localStorage['logger'] = JSON.stringify(logger);
+	displayLogger('now');
+});
+
+$('.card__frequency').click(function () {
+	let id = $(this).parent().attr('id');
+	id = id.split('_')[1];
+	counter[id]++;
+	localStorage['counter'] = JSON.stringify(counter);
+	console.log(id);
+	setCounter(id);
+
+	logger.push({
+		time: timeCurrent,
+		counter: counter[id],
+		timeString: getTimeString(timeCurrent),
+		meaning: $(this).prev().html(),
+		action: '+',
+	});
+	localStorage['logger'] = JSON.stringify(logger);
+	displayLogger('now');
+});
+// ? =================================================
+
 $('.card__button_minus').click(function () {
 	let id = $(this).parent().parent().attr('id');
 	id = id.split('_')[1];
@@ -130,15 +190,22 @@ $('.card__button_minus').click(function () {
 	console.log(id);
 	setCounter(id);
 
-	logger.push({
+	let meaning = $(this).parent().prev().prev().html();
+	for (let i = logger.length - 1; i >= 0; i--) {
+		if (logger[i]['meaning'] == meaning) {
+			logger.splice(i, 1);
+			break;
+		}
+	}
+	/*logger.push({
 		time: timeCurrent,
 		counter: counter[id],
 		timeString: getTimeString(timeCurrent),
 		meaning: $(this).parent().prev().prev().html(),
 		action: '-',
-	});
+	});*/
 	localStorage['logger'] = JSON.stringify(logger);
-	displayLogger('now');
+	displayLogger('launch');
 });
 
 
@@ -248,54 +315,139 @@ function getFrequency(time) {
 }
 
 function displayLogger(mode) {
+	let j, group;
 	switch (mode) {
 		case 'launch':
 			$('.logger').empty();
+			j = 1;
+			$('.logger').prepend('<div class="logger__group" id="logger_1"></div>');
+			group = $(`#logger_${j}`);
+			group.addClass('logger__group_green');
+			group.prepend(`<div class="logger__background">${j}</div>`)
+
 			for (let i = 0; i < logger.length; i++) {
 				if (i > 0 && (logger[i].time - logger[i - 1].time) >= 10) {
-					$('.logger').prepend('<p class="logger__spacing"></p>');
+					j++;
+					$('.logger').prepend(`<div class="logger__group" id="logger_${j}"></div>`);
+					group = $(`#logger_${j}`);
+					if (j % 2) {
+						group.addClass('logger__group_green');
+					} else {
+						group.addClass('logger__group_yellow');
+					}
+					group.prepend(`<div class="logger__background">${j}</div>`);
+
+					// $('.logger').prepend('<p class="logger__spacing"></p>');
 				}
 
-				switch (logger[i].action) {
+				addLogger(i, group);
+				/*switch (logger[i].action) {
 					case '+':
-						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+						// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+						group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
 						break;
-					case '-':
-						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
-						break;
+					// case '-':
+					// 	$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+					// 	break;
 					case 'start':
-						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
+						// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
+						group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
 						break;
 					case 'pause':
-						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
+						// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
+						group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
 						break;
 					case 'resume':
-						$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
+						// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
+						group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
 						break;
-				}
+				}*/
 			}
 			break;
 		case 'now':
 			let i = logger.length - 1;
-			if (i > 0 && (logger[i].time - logger[i - 1].time) >= 10) $('.logger').prepend('<p class="logger__spacing"></p>');
 
-			switch (logger[i].action) {
+			if (i == 0) {
+				j = 1;
+				$('.logger').prepend(`<div class="logger__group" id="logger_${j}"></div>`);
+				group = $(`#logger_${j}`);
+				group.addClass('logger__group_green');
+				group.prepend(`<div class="logger__background">${j}</div>`)
+
+			} else {
+				j = $('.logger__group').first().attr('id');
+				j = j.split('_')[1];
+				group = $(`#logger_${j}`);
+			}
+
+			if (i > 0 && (logger[i].time - logger[i - 1].time) >= 10) {
+				// $('.logger').prepend('<p class="logger__spacing"></p>');
+				j++;
+				$('.logger').prepend(`<div class="logger__group" id="logger_${j}"></div>`);
+				group = $(`#logger_${j}`);
+				if (j % 2) {
+					group.addClass('logger__group_green');
+				} else {
+					group.addClass('logger__group_yellow');
+				}
+				group.prepend(`<div class="logger__background">${j}</div>`);
+
+			}
+
+			addLogger(i, group);
+			/*switch (logger[i].action) {
 				case '+':
-					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+					// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+					group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
 					break;
-				case '-':
-					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
-					break;
+				// case '-':
+				// 	$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+				// 	break;
 				case 'start':
-					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
+					// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
+					group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
 					break;
 				case 'pause':
-					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
+					// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
+					group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
 					break;
 				case 'resume':
-					$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
+					// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
+					group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
 					break;
-			}
+			}*/
 			break;
 	}
 }
+
+function addLogger(i, group) {
+	switch (logger[i].action) {
+		case '+':
+			// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+			group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+			break;
+		/*case '-':
+			$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
+			break;*/
+		case 'start':
+			// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
+			group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
+			break;
+		case 'pause':
+			// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
+			group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
+			break;
+		case 'resume':
+			// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
+			group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
+			break;
+	}
+}
+
+function setCardsOrder(input) {
+	for (let i = 0; i < input.length; i++) {
+		let order = input[i];
+		$(`#card_${i}`).css('order', `${-order}`);
+	}
+}
+

@@ -1,17 +1,4 @@
 export const dataBase = {
-	'9 сентября, 1-ая пара': {
-		words: {
-			'Значиць': 275,
-			'В принципе да': 33,
-			'Повторение': 84,
-		},
-
-		timePassed: (1 * 3600 + 26 * 60 + 57),
-		timePassedString: '01:26:57',
-
-		log: {},
-	},
-
 	'17 сентября, 2-ая пара': {
 		words: {
 			'Значиць': 438,
@@ -869,5 +856,18 @@ export const dataBase = {
 			{ "time": 41164, "counter": 235, "timeString": "11:26:04", "meaning": "Повторение", "action": "+" },
 			{ "time": 41174, "timeString": "11:26:14", "meaning": "pause", "action": "pause" },
 		],
+	},
+
+	'9 сентября, 1-ая пара': {
+		words: {
+			'Значиць': 275,
+			'В принципе да': 33,
+			'Повторение': 84,
+		},
+
+		timePassed: (1 * 3600 + 26 * 60 + 57),
+		timePassedString: '01:26:57',
+
+		log: {},
 	},
 }

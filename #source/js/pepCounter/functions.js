@@ -12,12 +12,14 @@ function checkMode(mode) {
 			clearInterval(intervalTimer);
 			clearInterval(intervalPause);
 			$('.main__start').css('display', 'flex');
+			$('body').addClass('lock');
 			break;
 		case 'start':
 			$('.main__start').css('display', 'none');
 			$('.main__button_end').css('display', 'none');
 			$('.main__button_pause').html('Пауза');
 			$('.timer__begin').children('span').html(getTimeString(parameters.timeBegin));
+			$('body').removeClass('lock');
 
 			timer();
 			intervalTimer = setInterval(timer, 1000);
@@ -29,6 +31,7 @@ function checkMode(mode) {
 			$('.main__button_pause').html('Продолжить');
 			$('.timer__begin').children('span').html(getTimeString(parameters.timeBegin));
 			$('.timer__passing').children('span').html(getTimeString(parameters.timePassing));
+			$('body').removeClass('lock');
 
 			getPause();
 			timer();

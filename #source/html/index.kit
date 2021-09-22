@@ -5,7 +5,8 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+	<!-- <link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" /> -->
+	<link rel="stylesheet" href="css/libs/swiper-bundle.min.css" />
 	<link rel="stylesheet" href="css/index-style.css">
 	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
 	<title>Pepuk Archive</title>
@@ -13,158 +14,11 @@
 
 <body>
 	<div class="wrapper">
-		<header class="header">
-			<p>Pepuk Archive</p>
-		</header>
-
-		<section class="stats">
-			<div class="stats__body">
-				<div id="stats" class="stats__content">
-					<!-- Значиць: 1000, в принципе да: 2000, ...Значиць: 1000, в принципе
-					да: 2000, ...Значиць: 1000, в принципе да: 2000, ...Значиць: 1000, в принципе да: 2000, ...Значиць:
-					1000, в принципе да: 2000, ...-->
-				</div>
-			</div>
-		</section>
-
-		<main class="content">
-			<div class="container">
-				<div class="content__body">
-					<div class="content__cards cards swiper-container">
-						<div class="swiper-wrapper">
-							<!-- <section id="card_1" class="cards__body swiper-slide swiper-container">
-								<div class="cards__first first swiper-slide">
-									<h1 class="first__date">17 сентября, 2-ая пара</h1>
-									<main class="first__stats">
-										<div class="first__item">
-											<h2 class="first__title">Значиць: 1000</h2>
-											<div class="first__freqency">100/сек, 200/мин, 300/час</div>
-										</div>
-
-										<div class="first__item">
-											<h2 class="first__title">В принципе да: 1000</h2>
-											<div class="first__freqency">100/сек, 200/мин, 300/час</div>
-										</div>
-
-										<div class="first__item">
-											<h2 class="first__title">Это самое: 1000</h2>
-											<div class="first__freqency">100/сек, 200/мин, 300/час</div>
-										</div>
-
-										<div class="first__item">
-											<h2 class="first__title">Вот: 1000</h2>
-											<div class="first__freqency">100/сек, 200/мин, 300/час</div>
-										</div>
-									</main>
-								</div>
-
-								<div class="cards__item group swiper-slide">
-									<h3 class="group__title">Комбинация: 1</h3>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-								</div>
-
-								<div class="cards__item group swiper-slide">
-									<h3 class="group__title">Комбинация: 2</h3>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-								</div>
-								<div class="cards__item group swiper-slide">
-									<h3 class="group__title">Комбинация: 3</h3>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-								</div>
-							</section>
-
-							<section id="card_2" class="cards__body swiper-slide swiper-container">
-								<div class="swiper-wrapper">
-									<div class="cards__first first swiper-slide">
-										<h1 class="first__date">17 сентября, 2-ая пара</h1>
-										<main class="first__stats">
-											<div class="first__item">
-												<h2 class="first__title">Значиць: 1000</h2>
-												<div class="first__freqency">100/сек, 200/мин, 300/час</div>
-											</div>
-
-											<div class="first__item">
-												<h2 class="first__title">В принципе да: 1000</h2>
-												<div class="first__freqency">100/сек, 200/мин, 300/час</div>
-											</div>
-
-											<div class="first__item">
-												<h2 class="first__title">Это самое: 1000</h2>
-												<div class="first__freqency">100/сек, 200/мин, 300/час</div>
-											</div>
-
-											<div class="first__item">
-												<h2 class="first__title">Вот: 1000</h2>
-												<div class="first__freqency">100/сек, 200/мин, 300/час</div>
-											</div>
-										</main>
-									</div>
-
-									<div class="cards__item group swiper-slide">
-										<h3 class="group__title">Комбинация: 1</h3>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									</div>
-									<div class="cards__item group swiper-slide">
-										<h3 class="group__title">Комбинация: 2</h3>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									</div>
-									<div class="cards__item group swiper-slide">
-										<h3 class="group__title">Комбинация: 3</h3>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
-									</div>
-								</div>
-							</section> -->
-						</div>
-
-						<div class="swiper-pagination content__swiper-pagination"></div>
-						<div class="swiper-button-next content_swiper-button-next"></div>
-						<div class="swiper-button-prev content_swiper-button-prev"></div>
-					</div>
-				</div>
-			</div>
-		</main>
-
-		<footer class="footer">
-			<a href="pepCounter.html" class="footer__link">Pep-Counter</a>
-		</footer>
+		<!-- @import 'index/header.html' -->
+		<!-- @import 'index/main.html' -->
+		<!-- @import 'index/footer.html' -->
 	</div>
-	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+	<script src="js/libs/swiper-bundle.min.js"></script>
 	<script src="js/libs/jquery-3.6.0.min.js"></script>
 	<script type="module" src="js/index-main.js"></script>
 </body>

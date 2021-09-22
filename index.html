@@ -5,175 +5,169 @@
 	<meta charset="UTF-8">
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<link rel="stylesheet" href="css/style.css">
-	<link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
-	<title>PepCount</title>
+	<link rel="stylesheet" href="https://unpkg.com/swiper@7/swiper-bundle.min.css" />
+	<link rel="stylesheet" href="css/index-style.css">
+	<!-- <link rel="stylesheet" href="css/swiper-bundle.min.css"> -->
+	<title>Pepuk Archive</title>
 </head>
 
 <body>
 	<div class="wrapper">
-<header class="header">
-	<div class="container">
-		<div class="header__body">
-			<div class="header__picture"></div>
-			<h1 href="logger.html" class="header__title">
-				Pep-Counter
-			</h1>
-			<div class="header__picture"></div>
-		</div>
-	</div>
-</header><main class="main">
-	<div class="main__start">
-		<div class="main__button main__button_start">
-			<p>Начать подсчёт!</p>
-		</div>
-	</div>
-	<div class="container">
-		<div class="main__body">
-			<div class="main__controls">
-				<div class="main__timer timer">
-					<div class="timer__begin">Подсчёт начался в <span>HH:MM:SS</span></div>
-					<div class="timer__passing">Прошло: <span></span></div>
+		<header class="header">
+			<p>Pepuk Archive</p>
+		</header>
+
+		<section class="stats">
+			<div class="stats__body">
+				<div id="stats" class="stats__content">
+					<!-- Значиць: 1000, в принципе да: 2000, ...Значиць: 1000, в принципе
+					да: 2000, ...Значиць: 1000, в принципе да: 2000, ...Значиць: 1000, в принципе да: 2000, ...Значиць:
+					1000, в принципе да: 2000, ...-->
 				</div>
-				<div class="main__button main__button_pause">Пауза</div>
-				<div class="main__button main__button_end">Закончить подсчёт!</div>
 			</div>
+		</section>
 
-			<div class="main__content">
-				<!-- <div id="card_0" class="main__card card">
-					<h2 class="card__title">Значиць</h2>
-					<div class="card__frequency frequency">
-						<p class="freq-hour"><span>0</span>/ч</p>
-						<p class="freq-minute"><span>0</span>/м</p>
-						<p class="freq-second"><span>0</span>/с</p>
-					</div>
-					<div class="card__controls">
-						<div class="card__button card__button_plus">+</div>
-						<div class="card__displayer">0</div>
-						<div class="card__button card__button_minus">-</div>
+		<main class="content">
+			<div class="container">
+				<div class="content__body">
+
+					<div class="content__cards cards swiper-container">
+						<!-- <div class="swiper-wrapper">
+							<section id="card_1" class="cards__body swiper-slide swiper-container">
+								<div class="cards__first first swiper-slide">
+									<h1 class="first__date">17 сентября, 2-ая пара</h1>
+									<main class="first__stats">
+										<div class="first__item">
+											<h2 class="first__title">Значиць: 1000</h2>
+											<div class="first__freqency">100/сек, 200/мин, 300/час</div>
+										</div>
+
+										<div class="first__item">
+											<h2 class="first__title">В принципе да: 1000</h2>
+											<div class="first__freqency">100/сек, 200/мин, 300/час</div>
+										</div>
+
+										<div class="first__item">
+											<h2 class="first__title">Это самое: 1000</h2>
+											<div class="first__freqency">100/сек, 200/мин, 300/час</div>
+										</div>
+
+										<div class="first__item">
+											<h2 class="first__title">Вот: 1000</h2>
+											<div class="first__freqency">100/сек, 200/мин, 300/час</div>
+										</div>
+									</main>
+								</div>
+
+								<div class="cards__item group swiper-slide">
+									<h3 class="group__title">Комбинация: 1</h3>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+								</div>
+
+								<div class="cards__item group swiper-slide">
+									<h3 class="group__title">Комбинация: 2</h3>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+								</div>
+								<div class="cards__item group swiper-slide">
+									<h3 class="group__title">Комбинация: 3</h3>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+								</div>
+							</section>
+
+							<section id="card_2" class="cards__body swiper-slide swiper-container">
+								<div class="swiper-wrapper">
+									<div class="cards__first first swiper-slide">
+										<h1 class="first__date">17 сентября, 2-ая пара</h1>
+										<main class="first__stats">
+											<div class="first__item">
+												<h2 class="first__title">Значиць: 1000</h2>
+												<div class="first__freqency">100/сек, 200/мин, 300/час</div>
+											</div>
+
+											<div class="first__item">
+												<h2 class="first__title">В принципе да: 1000</h2>
+												<div class="first__freqency">100/сек, 200/мин, 300/час</div>
+											</div>
+
+											<div class="first__item">
+												<h2 class="first__title">Это самое: 1000</h2>
+												<div class="first__freqency">100/сек, 200/мин, 300/час</div>
+											</div>
+
+											<div class="first__item">
+												<h2 class="first__title">Вот: 1000</h2>
+												<div class="first__freqency">100/сек, 200/мин, 300/час</div>
+											</div>
+										</main>
+									</div>
+
+									<div class="cards__item group swiper-slide">
+										<h3 class="group__title">Комбинация: 1</h3>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									</div>
+									<div class="cards__item group swiper-slide">
+										<h3 class="group__title">Комбинация: 2</h3>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									</div>
+									<div class="cards__item group swiper-slide">
+										<h3 class="group__title">Комбинация: 3</h3>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+										<p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Commodi, eum.</p>
+									</div>
+								</div>
+							</section>
+						</div>
+
+						<div class="swiper-pagination content__swiper-pagination"></div>
+						<div class="swiper-button-next content_swiper-button-next"></div>
+						<div class="swiper-button-prev content_swiper-button-prev"></div> -->
 					</div>
 				</div>
-
-				<div id="card_1" class="main__card card">
-					<h2 class="card__title">В принципе да</h2>
-					<div class="card__frequency frequency">
-						<p class="freq-hour"><span>0</span>/ч</p>
-						<p class="freq-minute"><span>0</span>/м</p>
-						<p class="freq-second"><span>0</span>/с</p>
-					</div>
-					<div class="card__controls">
-						<div class="card__button card__button_plus">+</div>
-						<div class="card__displayer">0</div>
-						<div class="card__button card__button_minus">-</div>
-					</div>
-				</div>
-
-				<div id="card_2" class="main__card card">
-					<h2 class="card__title">Повторение</h2>
-					<div class="card__frequency frequency">
-						<p class="freq-hour"><span>0</span>/ч</p>
-						<p class="freq-minute"><span>0</span>/м</p>
-						<p class="freq-second"><span>0</span>/с</p>
-					</div>
-					<div class="card__controls">
-						<div class="card__button card__button_plus">+</div>
-						<div class="card__displayer">0</div>
-						<div class="card__button card__button_minus">-</div>
-					</div>
-				</div>
-
-				<div id="card_3" class="main__card card">
-					<h2 class="card__title">Кхе...</h2>
-					<div class="card__frequency frequency">
-						<p class="freq-hour"><span>0</span>/ч</p>
-						<p class="freq-minute"><span>0</span>/м</p>
-						<p class="freq-second"><span>0</span>/с</p>
-					</div>
-					<div class="card__controls">
-						<div class="card__button card__button_plus">+</div>
-						<div class="card__displayer">0</div>
-						<div class="card__button card__button_minus">-</div>
-					</div>
-				</div>
-
-				<div id="card_4" class="main__card card">
-					<h2 class="card__title">Внимание</h2>
-					<div class="card__frequency frequency">
-						<p class="freq-hour"><span>0</span>/ч</p>
-						<p class="freq-minute"><span>0</span>/м</p>
-						<p class="freq-second"><span>0</span>/с</p>
-					</div>
-					<div class="card__controls">
-						<div class="card__button card__button_plus">+</div>
-						<div class="card__displayer">0</div>
-						<div class="card__button card__button_minus">-</div>
-					</div>
-				</div>
-
-				<div id="card_5" class="main__card card">
-					<h2 class="card__title">Это самое</h2>
-					<div class="card__frequency frequency">
-						<p class="freq-hour"><span>0</span>/ч</p>
-						<p class="freq-minute"><span>0</span>/м</p>
-						<p class="freq-second"><span>0</span>/с</p>
-					</div>
-					<div class="card__controls">
-						<div class="card__button card__button_plus">+</div>
-						<div class="card__displayer">0</div>
-						<div class="card__button card__button_minus">-</div>
-					</div>
-				</div>
-
-				<div id="card_6" class="main__card card">
-					<h2 class="card__title">Скажем</h2>
-					<div class="card__frequency frequency">
-						<p class="freq-hour"><span>0</span>/ч</p>
-						<p class="freq-minute"><span>0</span>/м</p>
-						<p class="freq-second"><span>0</span>/с</p>
-					</div>
-					<div class="card__controls">
-						<div class="card__button card__button_plus">+</div>
-						<div class="card__displayer">0</div>
-						<div class="card__button card__button_minus">-</div>
-					</div>
-				</div>
-
-				<div id="card_7" class="main__card card">
-					<h2 class="card__title">То есть</h2>
-					<div class="card__frequency frequency">
-						<p class="freq-hour"><span>0</span>/ч</p>
-						<p class="freq-minute"><span>0</span>/м</p>
-						<p class="freq-second"><span>0</span>/с</p>
-					</div>
-					<div class="card__controls">
-						<div class="card__button card__button_plus">+</div>
-						<div class="card__displayer">0</div>
-						<div class="card__button card__button_minus">-</div>
-					</div>
-				</div>
-
-				<div id="card_8" class="main__card card">
-					<h2 class="card__title">Вот</h2>
-					<div class="card__frequency frequency">
-						<p class="freq-hour"><span>0</span>/ч</p>
-						<p class="freq-minute"><span>0</span>/м</p>
-						<p class="freq-second"><span>0</span>/с</p>
-					</div>
-					<div class="card__controls">
-						<div class="card__button card__button_plus">+</div>
-						<div class="card__displayer">0</div>
-						<div class="card__button card__button_minus">-</div>
-					</div>
-				</div> -->
 			</div>
+		</main>
 
-			<div class="main__logger logger">
-
-			</div>
-		</div>
+		<footer class="footer">
+			<a href="pepCounter.html" class="footer__link">Pep-Counter</a>
+		</footer>
 	</div>
-</main>	</div>
-<script src="js/libs/jquery-3.6.0.min.js"></script>
-<script src="js/main.js"></script></body>
+	<script src="https://unpkg.com/swiper@7/swiper-bundle.min.js"></script>
+	<script src="js/libs/jquery-3.6.0.min.js"></script>
+	<script type="module" src="js/index-main.js"></script>
+</body>
 
 </html>

@@ -15,6 +15,7 @@ const functions = {
 
 			container2.append(`<h2 class="first__title">${key}: ${words[key]}</h2>`);
 
+
 			let freq = [(words[key] / timePassed)];
 			freq[1] = freq[0] * 60;
 			freq[2] = freq[1] * 60;

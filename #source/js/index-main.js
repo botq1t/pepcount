@@ -24,6 +24,7 @@ if (!localStorage['pepCount_archive']) {
 } else {
 	console.log($('.cards').children().first().html(localStorage['pepCount_archive']));
 }
+
 $('.cards').append(`<div class="swiper-pagination content_swiper-pagination"></div>`);
 $('.cards').append(`<div class="swiper-button-next content_swiper-button-next"></div>`);
 $('.cards').append(`<div class="swiper-button-prev content_swiper-button-prev"></div>`);

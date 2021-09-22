@@ -1,0 +1,154 @@
+.content {
+	flex: 1 1 auto;
+	position: relative;
+	&__body {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		padding: 25px 30px;
+	}
+	&_swiper-pagination {
+		font-size: 18px;
+		top: 65vh;
+		color: blue;
+		font-weight: 700;
+	}
+}
+.cards {
+	width: 100%;
+	height: 60vh;
+	overflow: hidden;
+	background: white;
+	border: 1px solid rgba(0, 0, 0, 1);
+	border-radius: 20px;
+	&__body {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		overflow-y: auto;
+		&_swiper-pagination {
+			// left: 75vw;
+			width: 20px;
+		}
+	}
+
+	&__item {
+		display: flex;
+		flex-direction: column;
+		// display: none;
+	}
+}
+
+.first {
+	display: flex;
+	width: 100%;
+	padding: 10px;
+	flex-direction: column;
+	flex: 1 0 100%;
+	// overflow-y: auto;
+	&__date {
+		text-align: center;
+		@include adaptiv-font(25, 20);
+		margin: 0px 0px 5px 0px;
+		font-weight: 700;
+		color: rgb(40, 11, 204);
+	}
+
+	&__passed {
+		@include adaptiv-font(22, 18);
+		text-align: center;
+		padding: 0px 0px 5px 0px;
+		margin: 0px 0px 10px 0px;
+		border-bottom: 1px solid #000;
+		font-style: italic;
+		color: rgb(40, 11, 204);
+	}
+
+	&__stats {
+		flex: 1 1 auto;
+		display: flex;
+		flex-direction: column;
+	}
+
+	&__item {
+		&:nth-child(odd) {
+			color: rgb(199, 129, 0);
+		}
+		&:nth-child(even) {
+			color: rgb(107, 2, 206);
+		}
+		border-bottom: 1px solid #000;
+		&:last-child {
+			border-bottom: none;
+		}
+		padding: 0px 0px 5px 0px;
+		margin: 0px 0px 10px 0px;
+		&:last-child {
+			margin: 0;
+		}
+	}
+
+	&__title {
+		@include adaptiv-font(22, 18);
+		text-align: center;
+		margin: 0px 0px 8px 0px;
+		// font-weight: 700;
+	}
+
+	&__freqency {
+		text-align: center;
+		font-style: italic;
+		@include adaptiv-font(20, 16);
+	}
+}
+
+.group {
+	border-top: 1px solid blue;
+	border-bottom: 1px solid blue;
+	flex: 1 0 100%;
+	width: 100%;
+	padding: 10px;
+	display: flex;
+	flex-direction: column;
+	&:nth-child(odd) {
+		background: rgb(0, 133, 185, 0.4);
+		color: white;
+	}
+	&:nth-child(even) {
+		background: rgba(14, 173, 0, 0.4);
+		color: white;
+	}
+	&__title {
+		font-style: italic;
+		text-align: center;
+		@include adaptiv-font(30, 20);
+		padding: 0px 0px 5px 0px;
+		margin: 0px 0px 10px 0px;
+		color: blue;
+		border-bottom: 2px dashed blue;
+	}
+	p {
+		@include adaptiv-font(23, 17);
+		margin: 0px 0px 5px 0px;
+		// text-shadow: 0 0 2px #000;
+		display: flex;
+	}
+
+	&__time {
+		flex: 0 0 auto;
+		display: inline-block;
+		color: red;
+		font-weight: 700;
+	}
+
+	&__meaning {
+		font-style: italic;
+		color: blue;
+		margin: 0 8px;
+		flex: 1 0 auto;
+	}
+	&__number {
+		color: rgb(174, 0, 255);
+		font-weight: 700;
+	}
+}

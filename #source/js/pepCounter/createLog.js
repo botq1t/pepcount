@@ -1,15 +1,6 @@
 function download() {
 	let text = createLogText();
 
-	/*for (let i = 0; i < counter.length; i++) {
-		text = text + `'${$(`#card_${i}`).children('.card__title').html()}': ${counter[i]},\n`;
-	}
-	text = text + `\n`;
-	for (let i = 0; i < logger.length; i++) {
-		text = text + `${JSON.stringify(logger[i])},\n`;
-	}*/
-
-
 	let element = document.createElement('a');
 	element.setAttribute('href', 'data:text/plain;charset=utf-8,' + encodeURIComponent(text));
 	element.setAttribute('download', 'log');
@@ -37,7 +28,7 @@ function createLogText() {
 	for (let i = 0; i < logger.length; i++) {
 		text = text + `		${JSON.stringify(logger[i])},\n`;
 	}
-	text = text + `	]\n`;
+	text = text + `	],\n`;
 
 
 	text = text + `}`;

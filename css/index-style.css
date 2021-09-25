@@ -164,12 +164,21 @@ body {
           align-items: center;
 }
 .stats__content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   letter-spacing: 1px;
   font-size: calc(18px + 7 * ((100vw - 320px) / 1600));
   color: #fffb00;
   font-weight: 700;
   text-shadow: 0 1px 2px black;
   font-style: italic;
+}
+.stats__item::before {
+  content: ", ";
+}
+.stats__item:first-child::before {
+  content: "";
 }
 .stats__number {
   color: lime;
@@ -327,6 +336,12 @@ body {
 .group:nth-child(even) {
   background: rgba(14, 173, 0, 0.4);
   color: white;
+}
+.group.gold {
+  background: rgba(255, 255, 0, 0.4);
+}
+.group.semi-gold {
+  background: rgba(255, 25, 198, 0.4);
 }
 .group__title {
   font-style: italic;

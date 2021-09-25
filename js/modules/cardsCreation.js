@@ -7,9 +7,13 @@ const functions = {
 		container.append(`<div class="first__passed">За время: ${timePassedString}</div>`)
 		container.append(`<main class="first__stats"></main>`);
 		container = container.children().last();
-		console.log(words);
+		// console.log(words);
 
-		for (let key in words) {
+		let wordsSorted = Object.keys(words).sort(function (a, b) { return words[b] - words[a] });
+		// console.log(words, wordsSorted);
+
+
+		/*for (let key in words) {
 			container.append(`<div class="first__item"></div>`);
 			let container2 = container.children().last();
 
@@ -20,24 +24,41 @@ const functions = {
 			freq[1] = freq[0] * 60;
 			freq[2] = freq[1] * 60;
 			container2.append(`<div class="first__freqency">${freq[0].toFixed(2)}/сек, ${freq[1].toFixed(2)}/мин, ${freq[2].toFixed(2)}/час</div>`)
+		}*/
+
+		for (let i of wordsSorted) {
+			container.append(`<div class="first__item"></div>`);
+			let container2 = container.children().last();
+
+			container2.append(`<h2 class="first__title">${i}: ${words[i]}</h2>`);
+
+
+			let freq = [(words[i] / timePassed)];
+			freq[1] = freq[0] * 60;
+			freq[2] = freq[1] * 60;
+			container2.append(`<div class="first__freqency">${freq[0].toFixed(2)}/сек, ${freq[1].toFixed(2)}/мин, ${freq[2].toFixed(2)}/час</div>`)
 		}
 	},
 
 	createLog: function (container, log, cardIndex) {
-		console.log('============');
-		console.log(container);
-		console.log(log);
+		// console.log('============');
+		// console.log(container);
+		// console.log(log);
 
 		let container2;
 		let groupIndex = 1;
+		let amount = 0;
 		for (let i = 0; i < log.length; i++) {
 			let logger = log[i];
 			if (i == 0 || log[i].time > (log[i - 1].time + 3)) {
-				container.append(`<div data-hash="c-${cardIndex}_g-${groupIndex}" class="cards__item group"></div>`);
+				functions.amountCheck(amount, container2);
+
+				container.append(`<div class="cards__item group"></div>`);
 				container2 = container.children().last();
 				container2.append(`<h3 class="group__title">Комбинация #${groupIndex}</h3>`);
 
 				groupIndex++;
+				amount = 0;
 			}
 			switch (logger.action) {
 				case '+':
@@ -53,7 +74,7 @@ const functions = {
 					container2.append(`<p><span class="group__time">[${logger.timeString}]</span><span class="group__meaning">Продолжаем!</span></p>`);
 					break;
 			}
-
+			amount++;
 		}
 	},
 
@@ -66,15 +87,27 @@ const functions = {
 			}
 		}
 
+		let upperStatsSorted = Object.keys(upperStats).sort(function (a, b) { return upperStats[b] - upperStats[a] });
+		console.log(upperStats, upperStatsSorted);
 
 		$('#stats').empty();
-		for (let key in upperStats) {
-			$('#stats').append(`${key}: <span class="stats__number">${upperStats[key]}</span>; `)
+
+		for (let i of upperStatsSorted) {
+			$('#stats').append(`<span class="stats__item">${i}: <span class="stats__number">${upperStats[i]}</span></span>`)
 		}
-		let correction = $('#stats').html();
+
+		/*let correction = $('#stats').html();
 		correction = correction.slice(0, -2);
 		console.log(correction);
-		$('#stats').html(correction);
+		$('#stats').html(correction);*/
+	},
+
+	amountCheck: function (amount, container2) {
+		if (amount >= 10 && container2) {
+			container2.addClass('gold');
+		} else if (amount >= 5 && container2) {
+			container2.addClass('semi-gold');
+		}
 	}
 }
 

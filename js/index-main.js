@@ -1,1 +1,62 @@
-import{dataBase}from"./modules/dataBase.js";import{createFirst,createLog,fillUpperStats}from"./modules/cardsCreation.js";if(console.log(dataBase),localStorage.pepCount_archive)console.log($(".cards").children().first().html(localStorage.pepCount_archive));else{$(".cards").empty().append('<div class="swiper-wrapper"></div>'),$(".cards").children().empty();let a=1;const e=$(".cards").children().first();for(let t in dataBase){console.log(dataBase[t]),e.append(`<section id="card_${a}" data-hash="card_${a}" class="cards__body swiper-slide"></section>`);const s=$(`#card_${a}`);createFirst(t,dataBase[t].timePassed,dataBase[t].timePassedString,dataBase[t].words,s),createLog(s,dataBase[t].log,a),a++}let t=e.html();localStorage.pepCount_archive=t}$(".cards").append('<div class="swiper-pagination content_swiper-pagination"></div>'),$(".cards").append('<div class="swiper-button-next content_swiper-button-next"></div>'),$(".cards").append('<div class="swiper-button-prev content_swiper-button-prev"></div>');let upperStats=[];for(let a in dataBase)upperStats.push(dataBase[a].words);fillUpperStats(upperStats);const sliders={mainSwiper:new Swiper(".content__cards",{navigation:{nextEl:".swiper-button-next",prevEl:".swiper-button-prev"},pagination:{el:".content_swiper-pagination",type:"fraction",clickable:!1},hashNavigation:!0})};
+import { dataBase } from './modules/dataBase.js';
+import { createFirst, createLog, fillUpperStats } from './modules/cardsCreation.js';
+
+console.log(dataBase);
+
+if (!localStorage['pepCount_archive']) {
+	$('.cards').empty().append('<div class="swiper-wrapper"></div>');
+	$('.cards').children().empty();
+	let i = 1;
+	const container = $('.cards').children().first();
+	for (let key in dataBase) {
+		console.log(dataBase[key]);
+		container.append(`<section id="card_${i}" data-hash="card_${i}" class="cards__body swiper-slide"></section>`);
+		const container2 = $(`#card_${i}`);
+
+		createFirst(key, dataBase[key].timePassed, dataBase[key].timePassedString, dataBase[key].words, container2);
+
+		createLog(container2, dataBase[key].log, i);
+		i++;
+	}
+
+	let toLocal = container.html();
+	localStorage['pepCount_archive'] = toLocal;
+} else {
+	console.log($('.cards').children().first().html(localStorage['pepCount_archive']));
+}
+
+$('.cards').append(`<div class="swiper-pagination content_swiper-pagination"></div>`);
+$('.cards').append(`<div class="swiper-button-next content_swiper-button-next"></div>`);
+$('.cards').append(`<div class="swiper-button-prev content_swiper-button-prev"></div>`);
+
+let upperStats = [];
+
+for (let key in dataBase) {
+	upperStats.push(dataBase[key].words);
+}
+
+fillUpperStats(upperStats);
+
+document.querySelector('.header').addEventListener('dblclick', function () {
+	if (confirm('Перезагрузить архив?')) {
+		localStorage.removeItem('pepCount_archive');
+		location.reload();
+	}
+});
+
+
+const sliders = {
+	mainSwiper: new Swiper('.content__cards', {
+		navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+		},
+		pagination: {
+			el: '.content_swiper-pagination',
+			type: 'fraction',
+			// dynamicBullets: true,
+			clickable: false,
+		},
+		hashNavigation: true,
+	}),
+}

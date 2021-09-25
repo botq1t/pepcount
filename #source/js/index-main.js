@@ -37,6 +37,13 @@ for (let key in dataBase) {
 
 fillUpperStats(upperStats);
 
+document.querySelector('.header').addEventListener('dblclick', function () {
+	if (confirm('Перезагрузить архив?')) {
+		localStorage.removeItem('pepCount_archive');
+		location.reload();
+	}
+});
+
 
 const sliders = {
 	mainSwiper: new Swiper('.content__cards', {

@@ -32,7 +32,7 @@ const functions = {
 		let groupIndex = 1;
 		for (let i = 0; i < log.length; i++) {
 			let logger = log[i];
-			if (i == 0 || log[i].time > (log[i - 1].time + 10)) {
+			if (i == 0 || log[i].time > (log[i - 1].time + 3)) {
 				container.append(`<div data-hash="c-${cardIndex}_g-${groupIndex}" class="cards__item group"></div>`);
 				container2 = container.children().last();
 				container2.append(`<h3 class="group__title">Комбинация #${groupIndex}</h3>`);

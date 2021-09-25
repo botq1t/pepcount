@@ -4,7 +4,7 @@ let timeCurrent;
 let timePassing;
 let intervalTimer, intervalPause;
 
-setCardsOrder(counter);
+// setCardsOrder(counter);
 checkMode(localStorage['pepcount_mode']);
 displayLogger('launch');
 setCounter();

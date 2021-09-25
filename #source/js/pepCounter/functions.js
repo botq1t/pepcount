@@ -240,10 +240,10 @@ function addLogger(i, group) {
 	}
 }
 
-function setCardsOrder(input) {
+/*function setCardsOrder(input) {
 	for (let i = 0; i < input.length; i++) {
 		let order = input[i];
 		$(`#card_${i}`).css('order', `${-order}`);
 	}
-}
+}*/
 

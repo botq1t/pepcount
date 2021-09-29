@@ -122,7 +122,7 @@ function displayLogger(mode) {
 			group.prepend(`<div class="logger__background">${j}</div>`)
 
 			for (let i = 0; i < logger.length; i++) {
-				if (i > 0 && (logger[i].time - logger[i - 1].time) >= 10) {
+				if (i > 0 && (logger[i].time - logger[i - 1].time) >= 3) {
 					j++;
 					$('.logger').prepend(`<div class="logger__group" id="logger_${j}"></div>`);
 					group = $(`#logger_${j}`);
@@ -137,27 +137,6 @@ function displayLogger(mode) {
 				}
 
 				addLogger(i, group);
-				/*switch (logger[i].action) {
-					case '+':
-						// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
-						group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
-						break;
-					// case '-':
-					// 	$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
-					// 	break;
-					case 'start':
-						// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
-						group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
-						break;
-					case 'pause':
-						// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
-						group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
-						break;
-					case 'resume':
-						// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
-						group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
-						break;
-				}*/
 			}
 			break;
 		case 'now':
@@ -176,7 +155,7 @@ function displayLogger(mode) {
 				group = $(`#logger_${j}`);
 			}
 
-			if (i > 0 && (logger[i].time - logger[i - 1].time) >= 10) {
+			if (i > 0 && (logger[i].time - logger[i - 1].time) >= 3) {
 				// $('.logger').prepend('<p class="logger__spacing"></p>');
 				j++;
 				$('.logger').prepend(`<div class="logger__group" id="logger_${j}"></div>`);
@@ -191,27 +170,6 @@ function displayLogger(mode) {
 			}
 
 			addLogger(i, group);
-			/*switch (logger[i].action) {
-				case '+':
-					// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
-					group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (добавлено) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
-					break;
-				// case '-':
-				// 	$('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> ${logger[i].meaning} (Убрано) <span class="logger__blue">[${logger[i].counter}]</span></p>`)
-				// 	break;
-				case 'start':
-					// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
-					group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Отсчёт начался</span></p>`)
-					break;
-				case 'pause':
-					// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
-					group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Пауза</span></p>`)
-					break;
-				case 'resume':
-					// $('.logger').prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
-					group.prepend(`<p><span class="logger__time">[${logger[i].timeString}]</span> <span class="logger__blue">Продолжение отсчёта</span></p>`)
-					break;
-			}*/
 			break;
 	}
 }

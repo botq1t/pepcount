@@ -106,7 +106,7 @@ function getFrequency(time) {
 		// console.log(freq);
 		$(this).children('.frequency').children('.freq-hour').children('span').html(freq.h.toFixed(2));
 		$(this).children('.frequency').children('.freq-minute').children('span').html(freq.m.toFixed(2));
-		$(this).children('.frequency').children('.freq-second').children('span').html(freq.s.toFixed(2));
+		// $(this).children('.frequency').children('.freq-second').children('span').html(freq.s.toFixed(2));
 	});
 }
 
@@ -197,11 +197,4 @@ function addLogger(i, group) {
 			break;
 	}
 }
-
-/*function setCardsOrder(input) {
-	for (let i = 0; i < input.length; i++) {
-		let order = input[i];
-		$(`#card_${i}`).css('order', `${-order}`);
-	}
-}*/
 

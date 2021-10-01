@@ -175,13 +175,7 @@ $('.card__button_minus').click(function () {
 			break;
 		}
 	}
-	/*logger.push({
-		time: timeCurrent,
-		counter: counter[id],
-		timeString: getTimeString(timeCurrent),
-		meaning: $(this).parent().prev().prev().html(),
-		action: '-',
-	});*/
+
 	localStorage['pepcount_logger'] = JSON.stringify(logger);
 	displayLogger('launch');
 });
